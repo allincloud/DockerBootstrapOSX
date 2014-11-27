@@ -142,8 +142,7 @@ printOK
 
 echo "*** Creating the dns container (This will take a while) ..."
 docker run --name dns -d -p 53:53 -p 53:53/udp --restart=always \
-	-v /var/run/docker.sock:/docker.sock phensley/docker-dns \
-	--domain docker --record boot2docker:$(boot2docker ip)  || true
+	-v /var/run/docker.sock:/docker.sock quay.io/jongretar/docker-dns-slim || true
 echo $?
 printOK
 
